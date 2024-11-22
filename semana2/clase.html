@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagina Web</title>
+</head>
+<body>
+    <h1> Gato </h1>
+    <img src="gato.jpg" alt="Imagen de un pato" style="max-width: 15%; height: auto;">
+    
+    <h2>Formulario  </h2>
+
+    <form onsubmit="enviarFormulario(event)">
+
+        <div>
+            <label id="nombre">Nombre del gato </label>
+            <input id="inputNombre" label="name" required>
+        </div>
+
+        <div>
+            <label id="peso">Peso del gato  (Kg)</label> 
+            <input type="number" id="inputPeso" min="1" max="10" required>
+        </div>
+
+        <div>
+            <label id="descripcion">Descripcion del gato </label>
+            <textarea></textarea>
+        </div>
+
+        <button type="submit">Enviar</button>
+    </form>
+
+    
+
+    <script src="clase.js"></script>
+</body>
+</html>
