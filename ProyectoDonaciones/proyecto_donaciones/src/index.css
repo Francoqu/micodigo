@@ -1,0 +1,109 @@
+/* Logo principal */
+.logo img {
+  width: 50px;
+  height: auto;
+}
+
+/* Íconos de navegación */
+.icon {
+  width: 20px;
+  height: 20px;
+}
+
+/* General */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  background-color: #f9f9f9;
+  color: #333;
+}
+
+header {
+  background-color: #581845;
+  color: white;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.navbar ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.navbar ul li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.navbar ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+.navbar ul li a:hover {
+  color: #ffcccb;
+}
+
+.cta {
+  background-color: #FF5722;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.cta:hover {
+  background-color: #E64A19;
+}
+
+.hero {
+  text-align: center;
+  margin: 50px auto;
+  padding: 50px 20px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  max-width: 800px;
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+  color: #581845;
+  margin-bottom: 20px;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+footer {
+  text-align: center;
+  padding: 10px 0;
+  background-color: #333;
+  color: white;
+  margin-top: 30px;
+  font-size: 14px;
+}
