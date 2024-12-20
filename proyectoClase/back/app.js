@@ -5,6 +5,16 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var app = express();
 
+const sequelize = require("./database/connect");
+
+
+var studentRouter= require("./routes/student.routes")
+var teacherRouter= require("./routes/teacher.routers")
+
+app.use("/teacher",teacherRouter);
+app.use("/student",studentRouter);
+
+
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
