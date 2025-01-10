@@ -4,7 +4,7 @@ var router = express.Router();
 const teacherController = require("../controllers/teacher.controller");
 
 /* Post home page. */
-router.get('/list', async function (request, response) {
+router.post('/list', async function (request, response) {
   const result = await teacherController.getList();
   response.status(200).json({
     data: result,
