@@ -1,7 +1,5 @@
 const configs = {
     server: {
-        url: "http//localhost:300",
-
     },
     routes: {
         teacher: {
@@ -10,10 +8,12 @@ const configs = {
         update: "/teacher/update",
         delete: "/teacher/delete",
         },
-        student: {
+        initil:{
+            login: "/initil/login",
+        }
     },
-},
 };
+
 
 
 export default configs;

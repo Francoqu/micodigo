@@ -1,20 +1,17 @@
 import React from "react";
-
 import { Routes, Route } from "react-router-dom";
-
-//FILE-PAGES
-import RegisterTeacherPage from "./pages/RegisterTeacher";
-//
-
+import Home from "./pages/RegisterTeacher";
 import NotFound from "./pages/NotFound";
+import Login from "./pages/Login";
 
 const AppRouter = () => {
-  return (
-    <Routes>
-      <Route path="/registroProfesor" element={<RegisterTeacherPage />} />
-      <Route path="*" element={<NotFound />} />
-    </Routes>
-  );
+    return (
+        <Routes>
+            {/* Route path="/" element={<Home />} */}
+            <Route path="/" element={<Login />} />
+            <Route path="*" element={<NotFound />} />
+        </Routes>
+    );
 };
 
 export default AppRouter;

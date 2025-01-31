@@ -3,19 +3,13 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-var app = express();
-var cors = require ("cors");
+var cors = require("cors");
 const sequelize = require("./database/connect");
 
+var app = express();
+app.use(cors()); // Permite todas las solicitudes de cualquier origen
 
-var studentRouter= require("./routes/student.routes")
-var teacherRouter= require("./routes/teacher.routers")
-
-app.use("/teacher",teacherRouter);
-app.use("/student",studentRouter);
-
-app.use(cors()); 
-
+// view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
@@ -25,15 +19,14 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-
-var testRouter = require("./routes/test.routes",testRouter);
-app.use('/test',testRouter);
-
-
-var studentRouter = require("./routes/student.routes",studentRouter);
-app.use('/student',studentRouter);
-
-
+var testRouter = require("./routes/test.routes");
+var studentRouter = require('./routes/student.routes');
+var teacherRouter = require("./routes/teacher.routes");
+var loginRouter = require("./routes/login.routes");
+app.use("/test", testRouter);
+app.use("/student", studentRouter);
+app.use("/teacher", teacherRouter);
+app.use("/initial", loginRouter)
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
