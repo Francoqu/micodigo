@@ -1,21 +1,36 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button, TextField } from "@mui/material";
+import { useNavigate } from "react-router-dom";
+import Cookie from "js-cookie";
 import configs from "../configs/env";
 
 const Login = () => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+    const navigate = useNavigate();
+
+    // Verificar cookie al cargar la página
+    useEffect(() => {
+        const storedUser = Cookie.get("username");
+        if (storedUser) {
+            navigate("/registro"); // Si ya hay usuario, redirigir
+        }
+    }, [navigate]);
 
     const login = async (e) => {
         e.preventDefault();
-        const response = await Services(
-            {
-                username: username,
-                password: password
-            },            
-        )
-        configs.routes.initial.login;
-        alert(response?.status ? "Error de servicio" : response?.message)
+
+        const response = await Services({
+            username,
+            password,
+        });
+
+        if (response?.status) {
+            Cookie.set("username", username, { expires: 1 }); // Expira en 1 día
+            navigate("/registro");
+        } else {
+            alert(response?.message || "Error de servicio");
+        }
     };
 
     const styles = {
@@ -40,7 +55,6 @@ const Login = () => {
     return (
         <div style={styles.container}>
             <h1 style={styles.title}>Login</h1>
-
             <form onSubmit={login} style={styles.form}>
                 <TextField 
                     label="Usuario" 
